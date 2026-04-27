@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyShare AI Type Contracts</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <main class="container page-stack">
+        <section class="page-hero surface">
+            <span class="chip">Type Contracts</span>
+            <h1>Core DTO and interface boundaries</h1>
+            <p>Reference mapping for frontend-backend payload contracts in TypeScript implementation.</p>
+        </section>
+
+        <section class="panel">
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contract</th>
+                            <th>Required fields</th>
+                            <th>Used by</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UserProfileDTO</td>
+                            <td>id, fullName, username, avatarUrl, role, tokenBalance</td>
+                            <td>Profile, Dashboard, Leaderboard</td>
+                        </tr>
+                        <tr>
+                            <td>NoteCardDTO</td>
+                            <td>id, title, subject, topic, tags, downloads, rating, author</td>
+                            <td>Browse notes, Home feed</td>
+                        </tr>
+                        <tr>
+                            <td>UploadRequestDTO</td>
+                            <td>title, description, subject, topic, semester, tags, visibility</td>
+                            <td>Upload notes API</td>
+                        </tr>
+                        <tr>
+                            <td>AIRequestDTO</td>
+                            <td>mode, noteIds, prompt, difficulty</td>
+                            <td>AI assistant routes</td>
+                        </tr>
+                        <tr>
+                            <td>RewardLedgerDTO</td>
+                            <td>id, type, amount, description, createdAt</td>
+                            <td>Rewards page</td>
+                        </tr>
+                        <tr>
+                            <td>SecurityEventDTO</td>
+                            <td>event, severity, ipAddress, createdAt, userId</td>
+                            <td>Admin security logs</td>
+                        </tr>
+                        <tr>
+                            <td>DashboardMetricsDTO</td>
+                            <td>uploads, downloads, likes, saves, tokenBalance, trendData</td>
+                            <td>User dashboard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

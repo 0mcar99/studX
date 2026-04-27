@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ChatGPT-style AI learning assistant for notes, quizzes, and flashcards.">
+    <title>StudyShare AI | AI Assistant</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-shell glass">
+                <a class="brand" href="index.html"><span class="brand-orb"></span><span>StudyShare AI</span></a>
+                <nav class="nav-links" aria-label="AI navigation">
+                    <a href="home.html">Home</a>
+                    <a href="ai-assistant.html">AI Assistant</a>
+                    <a href="browse-notes.html">Browse</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="rewards.html">Rewards</a>
+                </nav>
+                <div class="action-line">
+                    <a class="button button-ghost" href="upload-notes.html">Upload</a>
+                    <a class="button button-primary" href="leaderboard.html">Rankings</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-stack fade-in">
+        <section class="page-hero surface">
+            <span class="chip">AI Learning Assistant</span>
+            <h1>Ask, generate, revise, and master quickly</h1>
+            <p>Use your uploaded notes to get explanations, summaries, flashcards, MCQs, quizzes, and personalized study
+                plans.</p>
+        </section>
+
+        <section class="chat-shell">
+            <aside class="panel">
+                <h2 class="panel-title">AI tools</h2>
+                <p class="panel-subtitle">Choose a smart action based on your study goal.</p>
+                <div class="grid-2" style="margin-top: 0.75rem;">
+                    <button class="button button-secondary" type="button">Summarize chapter</button>
+                    <button class="button button-secondary" type="button">Explain topic simply</button>
+                    <button class="button button-secondary" type="button">Generate MCQs</button>
+                    <button class="button button-secondary" type="button">Create flashcards</button>
+                    <button class="button button-secondary" type="button">Build quiz</button>
+                    <button class="button button-secondary" type="button">Study planner</button>
+                </div>
+
+                <div class="card" style="margin-top: 0.8rem;">
+                    <h3>Source notes</h3>
+                    <p>DBMS Complete Semester Guide</p>
+                    <p>Operating Systems Quick Revision</p>
+                    <p>Cloud Computing Interview Pack</p>
+                </div>
+
+                <div class="card" style="margin-top: 0.8rem;">
+                    <h3>Saved AI history</h3>
+                    <ul class="timeline">
+                        <li>MCQ set: DBMS unit 4</li>
+                        <li>Flashcards: OS deadlocks</li>
+                        <li>Summary: CN transport layer</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <article class="chat-window">
+                <div class="chat-thread">
+                    <div class="bubble ai">Hi Aditi, I analyzed your selected notes. What should we focus on today:
+                        summary, quiz, or exam planner?</div>
+                    <div class="bubble user">Generate a quick revision summary for DBMS transaction management in simple
+                        language.</div>
+                    <div class="bubble ai">
+                        Sure. Transaction management ensures each database action stays reliable. Key points:
+                        <br>1. ACID keeps data correct even on failure.
+                        <br>2. Locks prevent conflicts between users.
+                        <br>3. Isolation levels trade speed for consistency.
+                        <br>4. Logs + recovery restore state after crashes.
+                    </div>
+                    <div class="bubble user">Now make 10 MCQs and add answer explanations.</div>
+                    <div class="bubble ai">Done. I generated 10 MCQs with explanations and added them to your AI history
+                        for revision later.</div>
+                </div>
+                <form class="chat-input" action="#" method="post">
+                    <input class="input" type="text" placeholder="Ask from your notes...">
+                    <button class="button button-primary" type="submit">Send</button>
+                </form>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

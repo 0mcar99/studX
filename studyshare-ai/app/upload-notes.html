@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upload study notes with metadata, progress, and quality settings.">
+    <title>StudyShare AI | Upload Notes</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-shell glass">
+                <a class="brand" href="index.html"><span class="brand-orb"></span><span>StudyShare AI</span></a>
+                <nav class="nav-links" aria-label="Upload navigation">
+                    <a href="home.html">Home</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="upload-notes.html">Upload</a>
+                    <a href="browse-notes.html">Browse</a>
+                    <a href="rewards.html">Rewards</a>
+                </nav>
+                <div class="action-line">
+                    <a class="button button-ghost" href="profile.html">Profile</a>
+                    <a class="button button-primary" href="ai-assistant.html">AI Assist</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-stack fade-in">
+        <section class="page-hero surface">
+            <span class="chip">Upload Center</span>
+            <h1>Share your best study materials</h1>
+            <p>Support PDF, PPT/PPTX, DOC/DOCX, TXT, images, audio, and video files with rich metadata for
+                discoverability.</p>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">Drag and drop uploader</h2>
+            <p class="panel-subtitle">Quality uploads unlock higher visibility and more token rewards.</p>
+            <div class="uploader-drop">
+                <h3>Drop files here or click to browse</h3>
+                <p>Max size 150 MB per file. Allowed academic formats only.</p>
+                <div class="cta-row" style="justify-content: center; margin-top: 0.8rem;">
+                    <button class="button button-primary" type="button">Choose file</button>
+                    <button class="button button-secondary" type="button">Upload folder</button>
+                </div>
+                <div class="progress" aria-label="Upload progress bar">
+                    <span></span>
+                </div>
+                <p class="muted">72% uploaded: dbms-unit4-notes.pdf</p>
+            </div>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">Resource details</h2>
+                <form class="form" action="#" method="post">
+                    <div class="field">
+                        <label for="title">Title</label>
+                        <input class="input" id="title" type="text"
+                            placeholder="e.g., Data Mining Unit 3 Complete Notes" required>
+                    </div>
+                    <div class="field">
+                        <label for="description">Description</label>
+                        <textarea id="description" rows="4" placeholder="Write a brief and helpful summary"
+                            required></textarea>
+                    </div>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="subject">Subject</label>
+                            <select id="subject" required>
+                                <option>Computer Science</option>
+                                <option>Mathematics</option>
+                                <option>Physics</option>
+                                <option>Chemistry</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="topic">Topic</label>
+                            <input class="input" id="topic" type="text" placeholder="Topic name" required>
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="semester">Semester</label>
+                            <select id="semester" required>
+                                <option>Semester 1</option>
+                                <option>Semester 2</option>
+                                <option>Semester 3</option>
+                                <option>Semester 4</option>
+                                <option>Semester 5</option>
+                                <option>Semester 6</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="tags">Tags</label>
+                            <input class="input" id="tags" type="text" placeholder="dbms, unit3, exam-ready" required>
+                        </div>
+                    </div>
+                    <div class="checkbox-line">
+                        <label class="left" for="is-public">
+                            <input id="is-public" type="checkbox" checked>
+                            <span>Public resource (visible in marketplace)</span>
+                        </label>
+                    </div>
+                    <button class="button button-primary" type="submit">Publish resource</button>
+                </form>
+            </article>
+
+            <article class="panel">
+                <h2 class="panel-title">Validation and security checks</h2>
+                <p class="panel-subtitle">Pre-upload policy checks to reduce abuse and malicious files.</p>
+                <ul class="timeline" style="margin-top: 0.75rem;">
+                    <li>File extension and MIME signature verified</li>
+                    <li>File size within configured limits</li>
+                    <li>Title and description content sanitized</li>
+                    <li>Malware simulation scan status required</li>
+                    <li>Uploader risk score and rate limit check</li>
+                </ul>
+                <div class="card" style="margin-top: 0.8rem;">
+                    <h3>Supported formats</h3>
+                    <p>PDF, DOC, DOCX, PPT, PPTX, TXT, PNG, JPG, MP3, WAV, MP4, MOV.</p>
+                </div>
+                <div class="card" style="margin-top: 0.8rem;">
+                    <h3>Reward tip</h3>
+                    <p>Resources with complete metadata and positive ratings get 1.6x token multipliers.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

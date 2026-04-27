@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin dashboard with moderation, abuse reports, analytics, and security logs.">
+    <title>StudyShare AI | Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-shell glass">
+                <a class="brand" href="index.html"><span class="brand-orb"></span><span>StudyShare AI</span></a>
+                <nav class="nav-links" aria-label="Admin navigation">
+                    <a href="admin-dashboard.html">Admin Dashboard</a>
+                    <a href="dashboard.html">User View</a>
+                    <a href="browse-notes.html">Moderate Notes</a>
+                    <a href="leaderboard.html">Community</a>
+                    <a href="settings.html">Settings</a>
+                </nav>
+                <div class="action-line">
+                    <a class="button button-ghost" href="home.html">Back to app</a>
+                    <a class="button button-primary" href="login.html">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-stack fade-in">
+        <section class="page-hero surface">
+            <span class="chip">Admin Control Center</span>
+            <h1>Platform governance and analytics</h1>
+            <p>Manage users, moderate uploads, monitor security events, and track platform health.</p>
+        </section>
+
+        <section class="metrics-grid">
+            <article class="metric">
+                <div class="label">Active users</div>
+                <div class="value">48,920</div>
+                <div class="delta up">+6.2% weekly</div>
+            </article>
+            <article class="metric">
+                <div class="label">API response time</div>
+                <div class="value">212ms</div>
+                <div class="delta up">Stable p95</div>
+            </article>
+            <article class="metric">
+                <div class="label">Error rate</div>
+                <div class="value">0.24%</div>
+                <div class="delta down">-0.08%</div>
+            </article>
+            <article class="metric">
+                <div class="label">Storage usage</div>
+                <div class="value">3.2 TB</div>
+                <div class="delta up">+128 GB today</div>
+            </article>
+        </section>
+
+        <section class="admin-grid">
+            <article class="admin-card">
+                <h2 class="panel-title">CPU / RAM (mock)</h2>
+                <p class="reward-score">58% / 71%</p>
+                <p class="muted">System utilization across production nodes</p>
+            </article>
+            <article class="admin-card">
+                <h2 class="panel-title">DB latency</h2>
+                <p class="reward-score">34ms</p>
+                <p class="muted">PostgreSQL average query latency</p>
+            </article>
+            <article class="admin-card">
+                <h2 class="panel-title">Requests / minute</h2>
+                <p class="reward-score">9,480</p>
+                <p class="muted">Current throughput</p>
+            </article>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">User moderation</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Reports</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@spam_upload_31</td>
+                                <td>5</td>
+                                <td><span class="pill warn">Under review</span></td>
+                                <td>Temporary suspend</td>
+                            </tr>
+                            <tr>
+                                <td>@harmful_link_bot</td>
+                                <td>9</td>
+                                <td><span class="pill warn">High risk</span></td>
+                                <td>Ban user</td>
+                            </tr>
+                            <tr>
+                                <td>@trusted_mentor</td>
+                                <td>0</td>
+                                <td><span class="pill success">Healthy</span></td>
+                                <td>None</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="panel">
+                <h2 class="panel-title">Abuse reports queue</h2>
+                <div class="alert-list" style="margin-top: 0.75rem;">
+                    <div class="alert-item">Report #8921: Suspicious executable masked as PDF in upload flow</div>
+                    <div class="alert-item">Report #8912: Repeated harmful language in comments section</div>
+                    <div class="alert-item">Report #8898: Potential plagiarism complaint on top-ranked notes</div>
+                </div>
+            </article>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">Security logs</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Event</th>
+                                <th>Severity</th>
+                                <th>IP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>08:01</td>
+                                <td>Failed login burst detected</td>
+                                <td><span class="pill warn">Medium</span></td>
+                                <td>185.22.18.4</td>
+                            </tr>
+                            <tr>
+                                <td>09:24</td>
+                                <td>Rate limit triggered on AI endpoint</td>
+                                <td><span class="pill info">Low</span></td>
+                                <td>164.31.90.2</td>
+                            </tr>
+                            <tr>
+                                <td>10:12</td>
+                                <td>Malware simulation flag in upload</td>
+                                <td><span class="pill warn">High</span></td>
+                                <td>103.73.47.90</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="panel">
+                <h2 class="panel-title">Revenue and growth (mock)</h2>
+                <div class="mini-chart" style="margin-top: 0.8rem;">
+                    <div class="bars" role="img" aria-label="Revenue chart">
+                        <span class="bar" style="height: 30%"></span>
+                        <span class="bar" style="height: 45%"></span>
+                        <span class="bar" style="height: 51%"></span>
+                        <span class="bar" style="height: 62%"></span>
+                        <span class="bar" style="height: 70%"></span>
+                        <span class="bar" style="height: 78%"></span>
+                        <span class="bar" style="height: 88%"></span>
+                    </div>
+                </div>
+                <ul class="timeline" style="margin-top: 0.8rem;">
+                    <li>Pro subscriptions: 4,810 (+7.8%)</li>
+                    <li>Campus plans: 126 (+5.1%)</li>
+                    <li>Projected MRR: $128,000</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

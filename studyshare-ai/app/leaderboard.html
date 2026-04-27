@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Community leaderboard with top contributors and rankings.">
+    <title>StudyShare AI | Leaderboard</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-shell glass">
+                <a class="brand" href="index.html"><span class="brand-orb"></span><span>StudyShare AI</span></a>
+                <nav class="nav-links" aria-label="Leaderboard navigation">
+                    <a href="home.html">Home</a>
+                    <a href="leaderboard.html">Leaderboard</a>
+                    <a href="profile.html">Profiles</a>
+                    <a href="rewards.html">Rewards</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </nav>
+                <div class="action-line">
+                    <a class="button button-ghost" href="browse-notes.html">Browse</a>
+                    <a class="button button-primary" href="upload-notes.html">Contribute</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-stack fade-in">
+        <section class="page-hero surface">
+            <span class="chip">Leaderboard</span>
+            <h1>Top contributors of the week</h1>
+            <p>Rankings are based on note quality, downloads, likes, helpful engagement, and learning consistency.</p>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">Ranking filters</h2>
+            <div class="filters" style="margin-top: 0.75rem; grid-template-columns: repeat(4, minmax(0, 1fr));">
+                <select>
+                    <option>Timeframe: This Week</option>
+                    <option>This Month</option>
+                    <option>All Time</option>
+                </select>
+                <select>
+                    <option>Scope: Global</option>
+                    <option>My Campus</option>
+                    <option>My Department</option>
+                </select>
+                <select>
+                    <option>Category: Overall</option>
+                    <option>Uploads</option>
+                    <option>AI Achievements</option>
+                    <option>Community Helpfulness</option>
+                </select>
+                <select>
+                    <option>Show: Top 50</option>
+                    <option>Top 100</option>
+                    <option>Top 500</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">Top contributors</h2>
+                <div class="leaderboard-list" style="margin-top: 0.75rem;">
+                    <div class="leader-row"><span class="rank">1</span>
+                        <div><strong>Rohan Malhotra</strong>
+                            <p class="muted">Verified Educator | 42 uploads</p>
+                        </div><strong>18,440</strong>
+                    </div>
+                    <div class="leader-row"><span class="rank">2</span>
+                        <div><strong>Aditi Sharma</strong>
+                            <p class="muted">Data Science Club | 38 uploads</p>
+                        </div><strong>17,980</strong>
+                    </div>
+                    <div class="leader-row"><span class="rank">3</span>
+                        <div><strong>Meera N</strong>
+                            <p class="muted">Top Reviewer | 35 uploads</p>
+                        </div><strong>17,105</strong>
+                    </div>
+                    <div class="leader-row"><span class="rank">4</span>
+                        <div><strong>Karan Verma</strong>
+                            <p class="muted">System Design Notes</p>
+                        </div><strong>16,080</strong>
+                    </div>
+                    <div class="leader-row"><span class="rank">5</span>
+                        <div><strong>Naina Gupta</strong>
+                            <p class="muted">Exam Sprint Mentor</p>
+                        </div><strong>15,640</strong>
+                    </div>
+                    <div class="leader-row"><span class="rank">6</span>
+                        <div><strong>Yash P</strong>
+                            <p class="muted">AI Quiz Champion</p>
+                        </div><strong>15,050</strong>
+                    </div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <h2 class="panel-title">Your rank snapshot</h2>
+                <p class="reward-score">#12</p>
+                <p class="muted">You are 430 points away from Top 10.</p>
+                <div class="card" style="margin-top: 0.8rem;">
+                    <h3>Ways to climb faster</h3>
+                    <ul class="timeline">
+                        <li>Upload one verified high-quality note set</li>
+                        <li>Answer 8 helpful community questions</li>
+                        <li>Complete 5-day AI learning streak</li>
+                    </ul>
+                </div>
+                <div class="card" style="margin-top: 0.8rem;">
+                    <h3>Top contributor badges</h3>
+                    <div class="badge-row">
+                        <span class="badge">Verified Educator</span>
+                        <span class="badge">Top Uploader</span>
+                        <span class="badge">Helpful Mentor</span>
+                        <span class="badge">Quiz Creator</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

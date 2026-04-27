@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student profile page with uploads, badges, and community insights.">
+    <title>StudyShare AI | Profile</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-shell glass">
+                <a class="brand" href="index.html"><span class="brand-orb"></span><span>StudyShare AI</span></a>
+                <nav class="nav-links" aria-label="Profile navigation">
+                    <a href="home.html">Home</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="leaderboard.html">Leaderboard</a>
+                    <a href="settings.html">Settings</a>
+                </nav>
+                <div class="action-line">
+                    <a class="button button-ghost" href="browse-notes.html">Browse</a>
+                    <a class="button button-primary" href="upload-notes.html">Upload</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-stack fade-in">
+        <section class="page-hero surface">
+            <span class="chip">Public Profile</span>
+            <h1>Aditi Sharma</h1>
+            <p>Computer Science student | Verified contributor | Focus: DBMS, OS, Interview prep</p>
+            <div class="badge-row" style="margin-top: 0.7rem;">
+                <span class="badge">Verified Educator</span>
+                <span class="badge">Top Contributor</span>
+                <span class="badge">Helpful Reviewer</span>
+            </div>
+        </section>
+
+        <section class="profile-grid">
+            <article class="profile-card">
+                <h2 class="panel-title">Followers</h2>
+                <p class="reward-score">8,420</p>
+                <p class="muted">+120 this week</p>
+            </article>
+            <article class="profile-card">
+                <h2 class="panel-title">Following</h2>
+                <p class="reward-score">312</p>
+                <p class="muted">Curated experts and peers</p>
+            </article>
+            <article class="profile-card">
+                <h2 class="panel-title">Average rating</h2>
+                <p class="reward-score">4.9</p>
+                <p class="muted">Across all uploads</p>
+            </article>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">Top public uploads</h2>
+                <div class="notes-grid" style="grid-template-columns: 1fr 1fr; margin-top: 0.75rem;">
+                    <article class="note-card">
+                        <div class="note-preview"></div>
+                        <div class="note-body">
+                            <h3 class="note-title">OS Scheduling Master Notes</h3>
+                            <p class="note-meta">9.4k downloads | 4.9 rating</p>
+                        </div>
+                    </article>
+                    <article class="note-card">
+                        <div class="note-preview"></div>
+                        <div class="note-body">
+                            <h3 class="note-title">DBMS SQL Cheat Pack</h3>
+                            <p class="note-meta">8.1k downloads | 4.8 rating</p>
+                        </div>
+                    </article>
+                </div>
+            </article>
+
+            <article class="panel">
+                <h2 class="panel-title">Community reviews</h2>
+                <div class="card" style="margin-top: 0.75rem;">
+                    <strong>@ravi_cs</strong>
+                    <p>Very clean notes and excellent explanations. Perfect for pre-exam revision.</p>
+                </div>
+                <div class="card" style="margin-top: 0.55rem;">
+                    <strong>@meera_analytics</strong>
+                    <p>Strong quality control and useful topic tags. Easy to discover and save.</p>
+                </div>
+                <div class="cta-row" style="margin-top: 0.8rem;">
+                    <button class="button button-secondary" type="button">Follow</button>
+                    <button class="button button-ghost" type="button">Message</button>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

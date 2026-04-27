@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyShare AI Validation Rules</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <main class="container page-stack">
+        <section class="page-hero surface">
+            <span class="chip">Validation Spec</span>
+            <h1>Input, content, and upload validation baseline</h1>
+            <p>Rule definitions for form validation, sanitization, and anti-abuse controls.</p>
+        </section>
+
+        <section class="grid-2">
+            <article class="card">
+                <h3>Account validation</h3>
+                <ul class="timeline">
+                    <li>Email: RFC-compliant format + domain normalization</li>
+                    <li>Password: 8 to 64 chars, upper/lower/number/symbol</li>
+                    <li>Username: alphanumeric + underscore, 3 to 24 chars</li>
+                    <li>Throttle account creation by IP and fingerprint</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>Note metadata validation</h3>
+                <ul class="timeline">
+                    <li>Title: 8 to 140 chars</li>
+                    <li>Description: 30 to 2000 chars, HTML sanitized</li>
+                    <li>Subject/topic/semester required and normalized</li>
+                    <li>Tags: max 10, each max 32 chars</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>Upload validation</h3>
+                <ul class="timeline">
+                    <li>Allowlist MIME and extension alignment checks</li>
+                    <li>File size limits by media type</li>
+                    <li>Reject password-protected or unknown binary payloads</li>
+                    <li>Mandatory malware simulation scan flag before publish</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>Comment and review validation</h3>
+                <ul class="timeline">
+                    <li>Content max length and profanity policy pass</li>
+                    <li>XSS sanitize rich content before persistence</li>
+                    <li>Rate limit comment posting bursts</li>
+                    <li>Store moderation score for trust ranking</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

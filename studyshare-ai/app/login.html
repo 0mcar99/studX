@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure login page for StudyShare AI.">
+    <title>StudyShare AI | Login</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <main class="auth-layout fade-in">
+        <section class="auth-card surface glass">
+            <a class="brand" href="index.html">
+                <span class="brand-orb"></span>
+                <span>StudyShare AI</span>
+            </a>
+            <h1>Welcome back</h1>
+            <p>Login to continue learning, uploading, and earning rewards.</p>
+
+            <form class="form" action="#" method="post">
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input class="input" id="email" type="email" placeholder="you@campus.edu" required>
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input class="input" id="password" type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="checkbox-line">
+                    <label class="left" for="remember">
+                        <input id="remember" type="checkbox">
+                        <span>Remember me for 30 days</span>
+                    </label>
+                    <a href="forgot-password.html">Forgot password?</a>
+                </div>
+                <button class="button button-primary" type="submit">Login securely</button>
+                <button class="button button-ghost" type="button">Continue with Google</button>
+            </form>
+
+            <p class="muted" style="margin-top: 0.85rem;">No account yet? <a href="signup.html">Create one here</a></p>
+        </section>
+    </main>
+</body>
+
+</html>

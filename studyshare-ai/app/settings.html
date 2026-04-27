@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Account, security, and notification settings for StudyShare AI.">
+    <title>StudyShare AI | Settings</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-shell glass">
+                <a class="brand" href="index.html"><span class="brand-orb"></span><span>StudyShare AI</span></a>
+                <nav class="nav-links" aria-label="Settings navigation">
+                    <a href="home.html">Home</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="settings.html">Settings</a>
+                    <a href="admin-dashboard.html">Admin</a>
+                </nav>
+                <div class="action-line">
+                    <a class="button button-ghost" href="login.html">Logout</a>
+                    <a class="button button-primary" href="forgot-password.html">Reset password</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-stack fade-in">
+        <section class="page-hero surface">
+            <span class="chip">Account Settings</span>
+            <h1>Security and preferences</h1>
+            <p>Control profile privacy, password safety, notification channels, and session access.</p>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">Profile settings</h2>
+                <form class="form" action="#" method="post">
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="display-name">Display name</label>
+                            <input class="input" id="display-name" type="text" value="Aditi Sharma">
+                        </div>
+                        <div class="field">
+                            <label for="username">Username</label>
+                            <input class="input" id="username" type="text" value="aditi_cs">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio"
+                            rows="4">Computer science student. I share exam-ready notes and AI-based revision guides.</textarea>
+                    </div>
+                    <div class="field">
+                        <label for="visibility">Profile visibility</label>
+                        <select id="visibility">
+                            <option>Public</option>
+                            <option>Followers only</option>
+                            <option>Private</option>
+                        </select>
+                    </div>
+                    <button class="button button-primary" type="submit">Save profile</button>
+                </form>
+            </article>
+
+            <article class="panel">
+                <h2 class="panel-title">Security controls</h2>
+                <form class="form" action="#" method="post">
+                    <div class="field">
+                        <label for="current-password">Current password</label>
+                        <input class="input" id="current-password" type="password" placeholder="Enter current password">
+                    </div>
+                    <div class="field">
+                        <label for="new-password-2">New password</label>
+                        <input class="input" id="new-password-2" type="password" placeholder="Enter new password">
+                    </div>
+                    <div class="checkbox-line">
+                        <label class="left" for="two-factor">
+                            <input id="two-factor" type="checkbox" checked>
+                            <span>Enable two-factor verification</span>
+                        </label>
+                    </div>
+                    <div class="checkbox-line">
+                        <label class="left" for="email-verification">
+                            <input id="email-verification" type="checkbox" checked>
+                            <span>Require email verification for new device login</span>
+                        </label>
+                    </div>
+                    <button class="button button-primary" type="submit">Update security</button>
+                </form>
+            </article>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">Notification preferences</h2>
+                <form class="form" action="#" method="post">
+                    <label class="left" for="notif-downloads">
+                        <input id="notif-downloads" type="checkbox" checked>
+                        <span>Notify me when my notes are downloaded</span>
+                    </label>
+                    <label class="left" for="notif-comments">
+                        <input id="notif-comments" type="checkbox" checked>
+                        <span>Notify me about comments and replies</span>
+                    </label>
+                    <label class="left" for="notif-rewards">
+                        <input id="notif-rewards" type="checkbox" checked>
+                        <span>Notify me about token rewards and rank updates</span>
+                    </label>
+                    <label class="left" for="notif-security">
+                        <input id="notif-security" type="checkbox" checked>
+                        <span>Notify me about suspicious activity alerts</span>
+                    </label>
+                    <button class="button button-secondary" type="submit">Save notifications</button>
+                </form>
+            </article>
+
+            <article class="panel">
+                <h2 class="panel-title">Active sessions</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Device</th>
+                                <th>Location</th>
+                                <th>Last active</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chrome on Windows</td>
+                                <td>Pune, India</td>
+                                <td>Now</td>
+                                <td><span class="pill success">Current</span></td>
+                            </tr>
+                            <tr>
+                                <td>Edge on Android</td>
+                                <td>Pune, India</td>
+                                <td>3h ago</td>
+                                <td><span class="pill info">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Safari on iPad</td>
+                                <td>Mumbai, India</td>
+                                <td>2d ago</td>
+                                <td><span class="pill warn">Review</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum NoteVisibility {
+  PUBLIC
+  PRIVATE
+}
+
+enum RewardType {
+  UPLOAD_QUALITY
+  DOWNLOAD_MILESTONE
+  LIKE_ENGAGEMENT
+  DAILY_ACTIVITY
+  COMMUNITY_HELPFUL
+  REDEMPTION
+}
+
+enum ReportStatus {
+  OPEN
+  REVIEWING
+  RESOLVED
+  DISMISSED
+}
+
+enum SecuritySeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum NotificationType {
+  SYSTEM
+  FOLLOW
+  LIKE
+  COMMENT
+  REWARD
+  MODERATION
+  SECURITY
+}
+
+enum SessionProvider {
+  JWT
+  NEXTAUTH
+}
+
+enum UploadScanStatus {
+  PENDING
+  PASSED
+  FLAGGED
+  REJECTED
+}
+
+model User {
+  id                String           @id @default(cuid())
+  email             String           @unique
+  username          String           @unique
+  passwordHash      String
+  fullName          String
+  avatarUrl         String?
+  bio               String?
+  role              UserRole         @default(USER)
+  isVerified        Boolean          @default(false)
+  isSuspended       Boolean          @default(false)
+  tokenBalance      Int              @default(0)
+  failedLoginCount  Int              @default(0)
+  lastFailedLoginAt DateTime?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  notes             Note[]           @relation("AuthorNotes")
+  uploads           Upload[]
+  likes             Like[]
+  comments          Comment[]
+  savedNotes        SavedNote[]
+  rewards           Reward[]
+  aiHistory         AIHistory[]
+  reportsFiled      Report[]         @relation("ReporterReports")
+  reportsAgainst    Report[]         @relation("ReportedUserReports")
+  securityLogs      SecurityLog[]
+  followers         Follower[]       @relation("UserFollowers")
+  following         Follower[]       @relation("UserFollowing")
+  notifications     Notification[]   @relation("UserNotifications")
+  sessions          Session[]
+
+  @@index([role, isSuspended])
+}
+
+model Note {
+  id            String          @id @default(cuid())
+  authorId      String
+  uploadId      String?         @unique
+  title         String
+  description   String
+  subject       String
+  topic         String
+  semester      String
+  tags          String[]
+  fileType      String
+  visibility    NoteVisibility  @default(PUBLIC)
+  isApproved    Boolean         @default(false)
+  isFeatured    Boolean         @default(false)
+  views         Int             @default(0)
+  downloads     Int             @default(0)
+  averageRating Float           @default(0)
+  ratingCount   Int             @default(0)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  author        User            @relation("AuthorNotes", fields: [authorId], references: [id], onDelete: Cascade)
+  upload        Upload?         @relation("UploadNote", fields: [uploadId], references: [id], onDelete: SetNull)
+  likes         Like[]
+  comments      Comment[]
+  savedBy       SavedNote[]
+  reports       Report[]        @relation("ReportedNote")
+  aiHistory     AIHistory[]
+
+  @@index([subject, topic, semester])
+  @@index([downloads, views])
+  @@index([createdAt])
+}
+
+model Upload {
+  id               String           @id @default(cuid())
+  userId           String
+  storageProvider  String
+  storagePath      String
+  originalFileName String
+  mimeType         String
+  fileSize         Int
+  checksum         String?
+  scanStatus       UploadScanStatus @default(PENDING)
+  malwareFlag      Boolean          @default(false)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  user             User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  note             Note?            @relation("UploadNote")
+
+  @@index([userId, createdAt])
+  @@index([scanStatus])
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  userId    String
+  noteId    String
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  note      Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, noteId])
+  @@index([noteId, createdAt])
+}
+
+model Comment {
+  id        String    @id @default(cuid())
+  userId    String
+  noteId    String
+  parentId  String?
+  content   String
+  rating    Int?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  note      Note      @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  parent    Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: SetNull)
+  replies   Comment[] @relation("CommentReplies")
+
+  @@index([noteId, createdAt])
+  @@index([userId])
+}
+
+model SavedNote {
+  id        String   @id @default(cuid())
+  userId    String
+  noteId    String
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  note      Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, noteId])
+  @@index([userId, createdAt])
+}
+
+model Reward {
+  id          String     @id @default(cuid())
+  userId      String
+  type        RewardType
+  amount      Int
+  description String
+  referenceId String?
+  createdAt   DateTime   @default(now())
+
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([type])
+}
+
+model AIHistory {
+  id         String   @id @default(cuid())
+  userId     String
+  noteId     String?
+  mode       String
+  prompt     String
+  response   String
+  tokensUsed Int      @default(0)
+  saved      Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  note       Note?    @relation(fields: [noteId], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@index([mode])
+}
+
+model Report {
+  id             String       @id @default(cuid())
+  reporterId     String
+  noteId         String?
+  reportedUserId String?
+  reason         String
+  details        String?
+  status         ReportStatus @default(OPEN)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  reporter       User         @relation("ReporterReports", fields: [reporterId], references: [id], onDelete: Cascade)
+  note           Note?        @relation("ReportedNote", fields: [noteId], references: [id], onDelete: SetNull)
+  reportedUser   User?        @relation("ReportedUserReports", fields: [reportedUserId], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+  @@index([reportedUserId])
+}
+
+model SecurityLog {
+  id         String           @id @default(cuid())
+  userId     String?
+  event      String
+  details    String?
+  ipAddress  String?
+  userAgent  String?
+  severity   SecuritySeverity @default(LOW)
+  createdAt  DateTime         @default(now())
+
+  user       User?            @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([severity, createdAt])
+  @@index([userId, createdAt])
+}
+
+model Follower {
+  id          String   @id @default(cuid())
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+
+  follower    User     @relation("UserFollowing", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("UserFollowers", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+  @@index([followingId, createdAt])
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  message   String
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  user      User             @relation("UserNotifications", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead, createdAt])
+}
+
+model Session {
+  id         String          @id @default(cuid())
+  userId     String
+  token      String          @unique
+  provider   SessionProvider @default(JWT)
+  expiresAt  DateTime
+  revokedAt  DateTime?
+  createdAt  DateTime        @default(now())
+
+  user       User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyShare AI System Architecture</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <main class="container page-stack">
+        <section class="page-hero surface">
+            <span class="chip">Architecture</span>
+            <h1>Reference deployment design</h1>
+            <p>Target architecture that maps directly to your preferred stack choices.</p>
+        </section>
+
+        <section class="grid-3">
+            <article class="card">
+                <h3>Frontend layer</h3>
+                <p>Next.js App Router + React + TypeScript, styled with Tailwind/shadcn equivalents. Static prototype
+                    pages in this repository map route-by-route to production implementation.</p>
+            </article>
+            <article class="card">
+                <h3>Backend layer</h3>
+                <p>Next.js API routes or Express services for auth, uploads, AI orchestration, rewards engine,
+                    moderation, and monitoring endpoints.</p>
+            </article>
+            <article class="card">
+                <h3>Data and storage</h3>
+                <p>PostgreSQL (Neon/Supabase) with Prisma models, object storage on S3/Supabase/Cloudinary, plus signed
+                    URL access policies.</p>
+            </article>
+        </section>
+
+        <section class="grid-2">
+            <article class="card">
+                <h3>Authentication strategy</h3>
+                <ul class="timeline">
+                    <li>Email + password login with bcrypt hashes</li>
+                    <li>Optional Google OAuth provider</li>
+                    <li>JWT session tokens with expiry and revocation</li>
+                    <li>Role-based route protection for Admin and User</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>AI layer</h3>
+                <ul class="timeline">
+                    <li>OpenAI API or local LLM adapters</li>
+                    <li>Prompt templates by mode: summary, flashcards, quiz, MCQ</li>
+                    <li>Context retrieval from selected uploads</li>
+                    <li>Token metering and usage records in AIHistory</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">Deployment map</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Provider</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Frontend</td>
+                            <td>Vercel</td>
+                            <td>Next.js app delivery and edge caching</td>
+                        </tr>
+                        <tr>
+                            <td>Backend API</td>
+                            <td>Railway or Render</td>
+                            <td>Dedicated service for heavy routes and workers</td>
+                        </tr>
+                        <tr>
+                            <td>Database</td>
+                            <td>Neon or Supabase</td>
+                            <td>Managed PostgreSQL</td>
+                        </tr>
+                        <tr>
+                            <td>Storage</td>
+                            <td>S3 / Supabase Storage / Cloudinary</td>
+                            <td>Secure note file hosting</td>
+                        </tr>
+                        <tr>
+                            <td>Monitoring</td>
+                            <td>Platform logs + custom metrics endpoint</td>
+                            <td>API latency and risk analytics</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

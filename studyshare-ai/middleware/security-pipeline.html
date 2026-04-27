@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyShare AI Middleware Pipeline</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <main class="container page-stack">
+        <section class="page-hero surface">
+            <span class="chip">Middleware Order</span>
+            <h1>Recommended request pipeline</h1>
+            <p>Execution order for robust auth, validation, and abuse protection in production.</p>
+        </section>
+
+        <section class="panel">
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Middleware</th>
+                            <th>Goal</th>
+                            <th>Applied on</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Secure headers</td>
+                            <td>Set strict headers via Helmet-equivalent config</td>
+                            <td>All requests</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Request ID / tracing</td>
+                            <td>Attach trace id for audit and diagnostics</td>
+                            <td>All requests</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Rate limiter</td>
+                            <td>Throttle abusive traffic and burst attacks</td>
+                            <td>Auth, AI, upload routes</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Body parser limits</td>
+                            <td>Cap payload size and reject malformed data</td>
+                            <td>All mutation routes</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>CSRF protection</td>
+                            <td>Protect browser-based form actions</td>
+                            <td>Session-auth POST/PATCH/DELETE</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Authentication</td>
+                            <td>Verify JWT session and account state</td>
+                            <td>Protected routes</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Role guard</td>
+                            <td>Restrict admin-only endpoints</td>
+                            <td>Admin routes</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Input validation</td>
+                            <td>Schema validation and required fields</td>
+                            <td>All API routes</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>XSS sanitization</td>
+                            <td>Sanitize user-generated rich text</td>
+                            <td>Comments, descriptions, profile fields</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Upload verifier</td>
+                            <td>MIME/type/size check and malware simulation flag</td>
+                            <td>Upload routes</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Audit logging</td>
+                            <td>Record sensitive events and decisions</td>
+                            <td>Auth/admin/security events</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>Error boundary</td>
+                            <td>Standardized safe error response format</td>
+                            <td>Global</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

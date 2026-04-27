@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyShare AI Hooks Plan</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <main class="container page-stack">
+        <section class="page-hero surface">
+            <span class="chip">Hooks Blueprint</span>
+            <h1>State management hook inventory</h1>
+            <p>Recommended custom hook boundaries for Next.js React implementation.</p>
+        </section>
+
+        <section class="panel">
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hook</th>
+                            <th>Purpose</th>
+                            <th>Primary pages</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>useAuthSession</td>
+                            <td>Read user session, role, and token state</td>
+                            <td>All protected pages</td>
+                        </tr>
+                        <tr>
+                            <td>useUploadManager</td>
+                            <td>Handle drag-drop, progress, and validation errors</td>
+                            <td>Upload notes page</td>
+                        </tr>
+                        <tr>
+                            <td>useNotesSearch</td>
+                            <td>Manage query, filters, sort, and pagination</td>
+                            <td>Browse notes page</td>
+                        </tr>
+                        <tr>
+                            <td>useAIAssistant</td>
+                            <td>Chat messages, prompt submission, and history saves</td>
+                            <td>AI assistant page</td>
+                        </tr>
+                        <tr>
+                            <td>useRewardWallet</td>
+                            <td>Fetch balance, earning history, and redeem actions</td>
+                            <td>Rewards page</td>
+                        </tr>
+                        <tr>
+                            <td>useLeaderboard</td>
+                            <td>Load rank data by scope and timeframe</td>
+                            <td>Leaderboard page</td>
+                        </tr>
+                        <tr>
+                            <td>useAdminMetrics</td>
+                            <td>Load monitoring metrics and moderation queues</td>
+                            <td>Admin dashboard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

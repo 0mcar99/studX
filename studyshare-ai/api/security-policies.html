@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyShare AI Security Policies</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <main class="container page-stack">
+        <section class="page-hero surface">
+            <span class="chip">Security Controls</span>
+            <h1>Protection checklist and implementation rules</h1>
+            <p>Security expectations for API routes, auth lifecycle, upload pipeline, and admin operations.</p>
+        </section>
+
+        <section class="grid-2">
+            <article class="card">
+                <h3>Password and session rules</h3>
+                <ul class="timeline">
+                    <li>Hash passwords with bcrypt and minimum cost factor 12</li>
+                    <li>Never store raw credentials in logs</li>
+                    <li>Rotate JWT signing keys using key versioning strategy</li>
+                    <li>Set session expiry and revoke on logout/reset</li>
+                    <li>Track failed login attempts and temporary lockouts</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>Request hardening</h3>
+                <ul class="timeline">
+                    <li>Use strict schema validation for every payload</li>
+                    <li>Apply sanitization to all rich text fields</li>
+                    <li>Enable SQL injection prevention through Prisma parameterization</li>
+                    <li>Activate CSRF tokens for browser form mutations</li>
+                    <li>Use rate limit policies for auth and AI endpoints</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>Upload security</h3>
+                <ul class="timeline">
+                    <li>Allowlist MIME types and extension combinations</li>
+                    <li>Set strict file size limits by type</li>
+                    <li>Store outside public web root and use signed URLs</li>
+                    <li>Run malware simulation scanner before publish</li>
+                    <li>Reject suspicious archives and executable payloads</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h3>Audit and risk monitoring</h3>
+                <ul class="timeline">
+                    <li>Record security-relevant events in SecurityLogs model</li>
+                    <li>Capture ip, user agent, severity, and context metadata</li>
+                    <li>Generate alerts for brute force and unusual geo access</li>
+                    <li>Require admin action audit trail for moderation decisions</li>
+                    <li>Review incident dashboard daily and close reports with reason</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

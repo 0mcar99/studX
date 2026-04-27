@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="User dashboard with uploads, engagement stats, AI history, and performance charts.">
+    <title>StudyShare AI | User Dashboard</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-shell glass">
+                <a class="brand" href="index.html"><span class="brand-orb"></span><span>StudyShare AI</span></a>
+                <nav class="nav-links" aria-label="Dashboard navigation">
+                    <a href="home.html">Home</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="upload-notes.html">Upload</a>
+                    <a href="browse-notes.html">Browse</a>
+                    <a href="rewards.html">Rewards</a>
+                </nav>
+                <div class="action-line">
+                    <a class="button button-ghost" href="ai-assistant.html">AI Tools</a>
+                    <a class="button button-primary" href="leaderboard.html">Leaderboard</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-stack fade-in">
+        <section class="page-hero surface">
+            <span class="chip">Dashboard</span>
+            <h1>Performance snapshot</h1>
+            <p>Monitor uploads, downloads, likes, token balance, and AI learning outcomes in one premium workspace.</p>
+        </section>
+
+        <section class="metrics-grid">
+            <article class="metric">
+                <div class="label">Total uploads</div>
+                <div class="value">124</div>
+                <div class="delta up">+9 this week</div>
+            </article>
+            <article class="metric">
+                <div class="label">Downloads</div>
+                <div class="value">24,280</div>
+                <div class="delta up">+18% weekly</div>
+            </article>
+            <article class="metric">
+                <div class="label">Likes received</div>
+                <div class="value">3,914</div>
+                <div class="delta up">+280 in 7 days</div>
+            </article>
+            <article class="metric">
+                <div class="label">Saved notes</div>
+                <div class="value">276</div>
+                <div class="delta up">+35 new saves</div>
+            </article>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">Engagement trend</h2>
+                <p class="panel-subtitle">Downloads, likes, and AI sessions over the last 7 days.</p>
+                <div class="mini-chart" style="margin-top: 0.8rem;">
+                    <div class="bars" role="img" aria-label="Weekly activity bars">
+                        <span class="bar" style="height: 42%"></span>
+                        <span class="bar" style="height: 55%"></span>
+                        <span class="bar" style="height: 58%"></span>
+                        <span class="bar" style="height: 74%"></span>
+                        <span class="bar" style="height: 80%"></span>
+                        <span class="bar" style="height: 66%"></span>
+                        <span class="bar" style="height: 90%"></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <h2 class="panel-title">Token balance</h2>
+                <p class="panel-subtitle">Current reward wallet and recent earning sources.</p>
+                <p class="reward-score">12,880 Tokens</p>
+                <ul class="timeline">
+                    <li>+240 from upload downloads</li>
+                    <li>+120 from daily activity streak</li>
+                    <li>+80 from helpful comments</li>
+                    <li>+300 from top weekly rank bonus</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">Recent uploads</h2>
+            <p class="panel-subtitle">Your newest notes and performance indicators.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Subject</th>
+                            <th>Views</th>
+                            <th>Downloads</th>
+                            <th>Visibility</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Computer Networks Quick Revision</td>
+                            <td>Networks</td>
+                            <td>3,140</td>
+                            <td>1,280</td>
+                            <td>Public</td>
+                            <td><span class="pill success">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td>OS Scheduling Deep Notes</td>
+                            <td>Operating Systems</td>
+                            <td>2,840</td>
+                            <td>1,020</td>
+                            <td>Public</td>
+                            <td><span class="pill success">Approved</span></td>
+                        </tr>
+                        <tr>
+                            <td>SQL Query Patterns</td>
+                            <td>Database</td>
+                            <td>760</td>
+                            <td>300</td>
+                            <td>Private</td>
+                            <td><span class="pill warn">Under review</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="dual">
+            <article class="panel">
+                <h2 class="panel-title">AI history</h2>
+                <p class="panel-subtitle">Latest prompts and generated outputs.</p>
+                <ul class="timeline" style="margin-top: 0.75rem;">
+                    <li>Generated 20 MCQs from OS chapter 4</li>
+                    <li>Created 35 flashcards from DBMS unit 2</li>
+                    <li>Summarized CN protocol stack in 8 bullets</li>
+                    <li>Built 14-day exam study planner</li>
+                </ul>
+            </article>
+            <article class="panel">
+                <h2 class="panel-title">Loading state samples</h2>
+                <p class="panel-subtitle">Skeleton loaders for fast perceived performance.</p>
+                <div style="display: grid; gap: 0.5rem; margin-top: 0.8rem;">
+                    <div class="skeleton" style="height: 14px;"></div>
+                    <div class="skeleton" style="height: 14px; width: 82%;"></div>
+                    <div class="skeleton" style="height: 14px; width: 65%;"></div>
+                    <div class="skeleton" style="height: 120px; border-radius: 14px;"></div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyShare AI API Endpoints</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+    <main class="container page-stack">
+        <section class="page-hero surface">
+            <span class="chip">API Blueprint</span>
+            <h1>StudyShare AI endpoint catalog</h1>
+            <p>This document maps routes for authentication, notes, AI, rewards, admin moderation, and monitoring.</p>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">Auth endpoints</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Path</th>
+                            <th>Purpose</th>
+                            <th>Protection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/auth/signup</td>
+                            <td>Create account with bcrypt password hash and email verify token</td>
+                            <td>Public + rate limit</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/auth/login</td>
+                            <td>Validate credentials and create JWT session</td>
+                            <td>Public + failed login tracking</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/auth/logout</td>
+                            <td>Revoke active session token</td>
+                            <td>User JWT</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/auth/forgot-password</td>
+                            <td>Issue password reset token with expiry</td>
+                            <td>Public + throttle</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/auth/reset-password</td>
+                            <td>Reset password via signed token</td>
+                            <td>Public token validate</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/auth/verify-email</td>
+                            <td>Validate email verification token</td>
+                            <td>Public token validate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">Notes and community endpoints</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Path</th>
+                            <th>Purpose</th>
+                            <th>Protection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/notes/upload</td>
+                            <td>Upload file metadata and queue storage scan</td>
+                            <td>User JWT + MIME checks</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/notes</td>
+                            <td>Search, filter, and paginate marketplace notes</td>
+                            <td>Public</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/notes/:id</td>
+                            <td>Fetch note details, comments, and metrics</td>
+                            <td>Public / role aware</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/notes/:id/like</td>
+                            <td>Like or unlike note</td>
+                            <td>User JWT</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/notes/:id/save</td>
+                            <td>Save note to user shelf</td>
+                            <td>User JWT</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/notes/:id/comments</td>
+                            <td>Add comment with sanitization and moderation pipeline</td>
+                            <td>User JWT + xss sanitize</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/reports</td>
+                            <td>Create abuse report for note or user</td>
+                            <td>User JWT</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/follow/:userId</td>
+                            <td>Follow or unfollow users</td>
+                            <td>User JWT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">AI and rewards endpoints</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Path</th>
+                            <th>Purpose</th>
+                            <th>Protection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/ai/chat</td>
+                            <td>Chat with context from selected notes</td>
+                            <td>User JWT + token quota</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/ai/summarize</td>
+                            <td>Generate chapter summary</td>
+                            <td>User JWT + rate limit</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/ai/mcq</td>
+                            <td>Generate MCQs with answer keys</td>
+                            <td>User JWT + quota</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/ai/flashcards</td>
+                            <td>Create flashcard set from note sections</td>
+                            <td>User JWT + quota</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/ai/quiz</td>
+                            <td>Create quiz set and difficulty levels</td>
+                            <td>User JWT + quota</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/rewards/balance</td>
+                            <td>Read current token balance</td>
+                            <td>User JWT</td>
+                        </tr>
+                        <tr>
+                            <td>POST</td>
+                            <td>/api/rewards/redeem</td>
+                            <td>Redeem tokens for premium feature unlock</td>
+                            <td>User JWT + wallet checks</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/leaderboard</td>
+                            <td>Fetch global and scoped rankings</td>
+                            <td>Public</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2 class="panel-title">Admin and monitoring endpoints</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Path</th>
+                            <th>Purpose</th>
+                            <th>Protection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/admin/users</td>
+                            <td>Paginated user moderation table</td>
+                            <td>Admin JWT</td>
+                        </tr>
+                        <tr>
+                            <td>PATCH</td>
+                            <td>/api/admin/users/:id/status</td>
+                            <td>Ban or suspend user account</td>
+                            <td>Admin JWT + audit log</td>
+                        </tr>
+                        <tr>
+                            <td>PATCH</td>
+                            <td>/api/admin/notes/:id/moderate</td>
+                            <td>Approve, reject, or remove upload</td>
+                            <td>Admin JWT + audit log</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/admin/reports</td>
+                            <td>Review abuse reports queue</td>
+                            <td>Admin JWT</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/admin/security-logs</td>
+                            <td>Read security events and suspicious activity</td>
+                            <td>Admin JWT</td>
+                        </tr>
+                        <tr>
+                            <td>GET</td>
+                            <td>/api/monitor/metrics</td>
+                            <td>API latency, requests/min, error rate, db latency</td>
+                            <td>Admin JWT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
